@@ -1,0 +1,103 @@
+<HTML>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+        var qnaNo=0;
+        var ansNo=0;
+        function textboxvalue() {
+            var x = document.getElementById("textField").value;
+            return (x);
+        }
+
+        function download(text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', "filename");
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+
+        }
+
+
+        function Read() {
+            file = document.querySelector("#file-input").files[0];
+            reader = new FileReader();
+            reader.addEventListener('load', function (e) {
+                text = e.target.result;
+                document.getElementById("textField").value = text;
+            });
+            reader.readAsText(file);
+
+        }
+
+        class QnA {
+            constructor(question, answer) {
+                this.question = question;
+                this.answer = answer;
+            }
+
+            getQuestion() {
+                return this.question;
+            }
+
+            getAnswer() {
+                return this.answer;
+            }
+        }
+        var qna = new QnA("","");
+
+        function splitt(text) {
+            var result = text.split("?")
+           qna[qnaNo++]= new QnA(result[0],result[1]);
+            
+        }
+
+        function QMaker(text) {
+            var buffer;
+            var len=text.length;
+            
+            for (var i = 0; i < len; i++) {
+                if (text[i] == '.') {
+
+                    splitt(buffer);
+                    buffer = null;
+                    continue;
+                }
+                buffer = buffer+text[i];
+
+            }
+        }
+
+        function answerGiver()
+        {
+            document.getElementById("textField").value=qna[ansNo++].getAnswer();
+        }
+
+    </script>
+
+    <button onclick="download(textboxvalue())"> download
+    </button>
+    <input type="file" id="file-input" />
+    <button id="read-button" onclick="Read()">Open</button>
+    <button onclick="QMaker(textboxvalue())"> Create Questions</button>
+    <button onclick="answerGiver()">
+        answer
+    </button>
+    <textarea id="textField" rows="50" cols="500">hi?my.
+        hi?my1.
+        hi?my2.
+        hi?my3.
+              </textarea>
+
+</body>
+
+</HTML>
