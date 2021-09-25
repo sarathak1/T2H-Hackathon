@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Title</title> 
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="1.css">
+
+<style>
+
+html {
+  font-family: Arial;
+  font-size: 16px;
+  background: #ffffff;
+}
+
+.sidebar {
+  position: fixed;
+  width: 25%;
+  height: 100vh;
+  background: #000000;
+  font-size: 0.65em;
+}
+
+.nav {
+  position: relative;
+  margin: 0 15%;
+  text-align: right;
+  top: 50%;
+  transform: translateY(-75%);
+  font-weight: bold;
+}
+
+.nav ul {
+  list-style: none;
+}
+.nav ul li {
+  position: relative;
+  margin: 3.2em 0;
+}
+.nav ul li a {
+  line-height: 5em;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.4em;
+  font-size: medium;
+  color: rgba(255, 255, 255, 0.35);
+  display: block;
+  transition: all ease-out 300ms;
+}
+.nav ul li.active a {
+  color: white;
+}
+.nav ul li:not(.active)::after {
+  opacity: 0.2;
+}
+.nav ul li:not(.active):hover a {
+  color: rgba(255, 255, 255, 0.75);
+}
+.nav ul li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.2em;
+  background: black;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(to right, #5e42a6, #b74e91);
+}
+iframe{
+  height: 100%;
+  width: 100%;
+}
+
+</style>
+
+</head>
+<main class="main">
+  <aside class="sidebar" style="display: block;">
+     <img src="Untitled_2.png" alt="LOGO" style="text-align: left;">
+     <p>TEXT</p>
+    <nav class="nav">
+      <ul>
+        <li class="active"><a href="Welcome.html" target="FRAME">Welcome</a></li>
+        <li class="active"><a href="Documents.html" target="FRAME">Document</a></li>
+        <li class="active"><a href="Quiz.html" target="FRAME">Quiz</a></li>
+        <li class="active"><a href="AboutUs.html" target="FRAME">About Us</a></li>
+        </ul>
+    </nav>
+  </aside>
+</main>
+<div id="contentframe" style="position:absolute; left: 25%; height: 100%; width: 75%;"><iframe src="Welcome.html" name="FRAME"></iframe></div>
+  </body>
+
+</html>
+ 
