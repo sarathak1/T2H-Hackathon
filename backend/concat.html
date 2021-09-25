@@ -1,0 +1,35 @@
+
+<HTML>
+    <head>
+    
+        </head>
+        <body>
+            <script>
+               function splitt(text)
+               {
+                   var result=text.split("#")
+                   return result;
+               }
+               document.write(splitt("hugh#longston"));
+               function inputt(text)
+
+               {   
+                    var buffer;
+                   for(var i=0; i < text.length; i++)
+                   {
+                       if(text[i]=='.')
+                       {  
+                           
+                           splitt(buffer);
+                           buffer=null;
+                                     //another if outside this, check if flag is 1 in it, if flag is 1, concatenate text[i] with buffer
+                       }
+                       concat(text[i], buffer);
+
+                   }
+               }
+            </script>
+            
+    
+        </body>
+    </HTML> 
