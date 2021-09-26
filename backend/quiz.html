@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <script type="text/html"
+        src = "Main.html">
+</script>
+<style>
+    
+#box{
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  background: rgb(192, 194, 223);
+  box-shadow: 0 0 10px black;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  padding: 10px;
+  text-align: center;
+  display: none;
+
+}
+#close
+{
+  font-size: 18px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: rgb(111, 111, 223);
+  display: inline-block;
+  border-radius: 1px solid #000;
+
+}
+</style>
+    </head>
+<body >
+    <script src = "main.js">
+    </script>
+    <button onclick="hi()"> hi</button>
+    <button onclick="pop()"> display</button>
+    <div id="box">
+            <h3 id = "question">question</h3>
+            <h4 id = "answer"> answer</h4>
+            <a id="close" onclick="pop()">Close Box</a>
+    </div>
+</body >
+</html>
